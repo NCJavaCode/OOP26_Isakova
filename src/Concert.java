@@ -32,4 +32,14 @@ public class Concert extends Show {
         }
         return price;
     }
+
+    // Перевизначення методу printInfo() батьківського класу Show (динамічний поліморфізм).
+    // Спочатку виконується версія з класу Show, потім друкуємо виконавця
+    @Override
+    public void printInfo() {
+        System.out.println("[Концерт]");
+        super.printInfo();
+        System.out.println("Виконавець: " + performer);
+    }
+
 }

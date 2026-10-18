@@ -32,4 +32,19 @@ public class Cartoon extends Show {
         }
         return price;
     }
+
+    // Перевизначення методу printInfo() батьківського класу Show (динамічний поліморфізм).
+    // super.printInfo() викликає версію методу з класу Show (назва, тривалість, ціна),
+    // а потім додаємо те, що є тільки в мультфільму
+    @Override
+    public void printInfo() {
+        System.out.println("[Мультфільм]");
+        super.printInfo();
+        if (format3D) {
+            System.out.println("Формат: 3D");
+        } else {
+            System.out.println("Формат: 2D");
+        }
+    }
+
 }
