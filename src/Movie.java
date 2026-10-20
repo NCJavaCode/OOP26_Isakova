@@ -1,13 +1,17 @@
 // Клас "Фільм" - описує фільм, який показують у кінотеатрі
-public class Movie {
+public class Movie implements Nameable, Printable {
     // Поля приховані модифікатором private (інкапсуляція):
     // змінити їх ззовні можна лише через методи класу
     private String title;        // назва фільму
     private int durationMinutes; // тривалість
     private int ageLimit;        // вікове обмеження
 
+    private String className;    // назва класу (для інтерфейсу Nameable)
+
     // Конструктор - створює фільм
     public Movie(String title, int durationMinutes, int ageLimit) {
+        this.className = "Movie";
+
         this.title = title;
         this.durationMinutes = durationMinutes;
         this.ageLimit = ageLimit;
@@ -49,4 +53,24 @@ public class Movie {
             this.ageLimit = ageLimit;
         }
     }
+
+    // Реалізація методів інтерфейсу Nameable
+
+    @Override
+    public void setClassName(String name) {
+        this.className = name;
+    }
+
+    @Override
+    public String getClassName() {
+        return className;
+    }
+
+    // Реалізація методу інтерфейсу Printable
+
+    @Override
+    public void printInfo() {
+        System.out.println("Фільм: " + title + ", " + durationMinutes + " хв, " + ageLimit + "+");
+    }
+
 }
